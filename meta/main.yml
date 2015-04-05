@@ -1,0 +1,16 @@
+galaxy_info:
+  author: Michel Blanc
+  description: StrongSwan Role
+  company: devops.works
+  license: MIT
+  min_ansible_version: 1.8
+
+  platforms:
+  - name: Ubuntu
+    versions:
+      - 14.04
+  categories:
+    - networking
+
+dependencies: []
+

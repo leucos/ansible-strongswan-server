@@ -1,0 +1,11 @@
+- name: Installs strongswan & ikev2 daemon
+  apt: name={{ item }} state=present
+  with_items:
+    - strongswan
+    - strongswan-ike
+  tags: apt
+
+- name: Creates fragments config directory
+  file: path=/etc/ipsec.conf.d/ state=directory mode=755 owner=root
+
+

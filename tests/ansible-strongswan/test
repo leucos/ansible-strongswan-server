@@ -1,0 +1,14 @@
+#!/bin/bash
+# -*- bash -*-
+
+# This gives you access to the custom DSL
+. "${ROLESPEC_LIB}/main"
+
+# Install a specific version of Ansible
+install_ansible "v1.8.3"
+
+# Check syntax first, and then that the playbook runs
+assert_playbook_runs
+
+# Check that the playbook is idempotent
+assert_playbook_idempotent
