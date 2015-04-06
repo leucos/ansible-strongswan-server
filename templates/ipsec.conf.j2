@@ -1,0 +1,12 @@
+config setup
+
+conn %default
+  ikelifetime=1440m
+  keylife=60m
+  rekeymargin=3m
+  keyingtries=1
+  keyexchange=ike
+  authby=secret
+
+include /etc/ipsec.conf.d/*
+
