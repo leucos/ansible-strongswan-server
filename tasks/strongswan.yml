@@ -22,3 +22,11 @@
 - name: Adds defaults
   template: src=00_defaults.conf.j2 dest=/etc/ipsec.conf.d/00_defaults.conf
   notify: Restart strongswan
+
+- name: Adds sysctl entry for ipforward
+  sysctl: >
+    name="net.ipv4.ip_forward" 
+    value=1 
+    sysctl_set=yes
+    sysctl_file=/etc/sysctl.d/50_ipforward.conf
+
