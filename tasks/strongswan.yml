@@ -11,4 +11,8 @@
 
 - name: Creates base config
   template: src=ipsec.conf.j2 dest=/etc/ipsec.conf
+  notify: Restart strongswan
 
+- name: Adds defaults
+  template: src=00_defaults.conf.j2 dest=/etc/ipsec.conf.d/00_defaults.conf
+  notify: Restart strongswan

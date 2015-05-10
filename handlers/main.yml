@@ -1,0 +1,10 @@
+- name: Restart strongswan
+  service: name=strongswan state=restarted
+  notify: Check strongswan
+
+- name: Reload strongswan
+  command: /usr/sbin/ipsec reload
+  notify: Check strongswan
+
+- name: Check strongswan
+  shell: ps auwx | grep [i]psec

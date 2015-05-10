@@ -1,0 +1,6 @@
+strongswan_ikelifetime: 1440m
+strongswan_keylife: 60m
+strongswan_rekeymargin: 3m
+strongswan_keyingtries: 1
+strongswan_keyexchange: ike
+strongswan_authby: secret
