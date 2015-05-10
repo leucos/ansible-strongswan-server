@@ -13,7 +13,7 @@
     - ipsec.secrets.d
 
 - name: Creates base config
-  template: src={{ item }}.j2 dest=/etc/
+  template: src={{ item }}.j2 dest=/etc/{{ item }}
   notify: Restart strongswan
   with_items:
     - ipsec.conf
