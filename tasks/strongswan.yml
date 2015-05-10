@@ -6,12 +6,18 @@
     - strongswan-ikev2
   tags: apt
 
-- name: Creates fragments config directory
-  file: path=/etc/ipsec.conf.d/ state=directory mode=755 owner=root
+- name: Creates config and secrets fragments directory
+  file: path=/etc/{{ item }} state=directory mode=750 owner=root
+  with_items:
+    - ipsec.conf.d
+    - ipsec.secrets.d
 
 - name: Creates base config
-  template: src=ipsec.conf.j2 dest=/etc/ipsec.conf
+  template: src={{ item }}.j2 dest=/etc/
   notify: Restart strongswan
+  with_items:
+    - ipsec.conf
+    - ipsec.secrets
 
 - name: Adds defaults
   template: src=00_defaults.conf.j2 dest=/etc/ipsec.conf.d/00_defaults.conf
