@@ -91,7 +91,7 @@ function install() {
     # Execute environment specific stuff on non travis CI
     [ -e ${SOURCE}/tests/prepare_environment.sh ] && ${SOURCE}/tests/prepare_environment.sh
   fi
-  exit
+  exit 0
 }
 
 if [ "x$1" == "x--install" ]; then
